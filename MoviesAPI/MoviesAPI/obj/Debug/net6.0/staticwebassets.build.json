@@ -1,11 +1,54 @@
 {
   "Version": 1,
-  "Hash": "RGOnVuaUuhzxy+DBbGSsQRVU71P5/wPQJlSJhlhFJ8A=",
+  "Hash": "7V1RsUk11JWu/IxzO9pbk40gzJQabLatMlrLiPKeFEk=",
   "Source": "MoviesAPI",
   "BasePath": "_content/MoviesAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "MoviesAPI\\wwwroot",
+      "Source": "MoviesAPI",
+      "ContentRoot": "C:\\Users\\Professional\\Desktop\\React and ASP NET\\MoviesAPI\\MoviesAPI\\wwwroot\\",
+      "BasePath": "_content/MoviesAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Professional\\Desktop\\React and ASP NET\\MoviesAPI\\MoviesAPI\\wwwroot\\actors\\ac4ec44f-c2fe-4758-8b11-1672d42a4e9d.jpg",
+      "SourceId": "MoviesAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Professional\\Desktop\\React and ASP NET\\MoviesAPI\\MoviesAPI\\wwwroot\\",
+      "BasePath": "_content/MoviesAPI",
+      "RelativePath": "actors/ac4ec44f-c2fe-4758-8b11-1672d42a4e9d.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\actors\\ac4ec44f-c2fe-4758-8b11-1672d42a4e9d.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Professional\\Desktop\\React and ASP NET\\MoviesAPI\\MoviesAPI\\wwwroot\\actors\\f157b16c-39ad-4280-af63-438eabf7e190.jpg",
+      "SourceId": "MoviesAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Professional\\Desktop\\React and ASP NET\\MoviesAPI\\MoviesAPI\\wwwroot\\",
+      "BasePath": "_content/MoviesAPI",
+      "RelativePath": "actors/f157b16c-39ad-4280-af63-438eabf7e190.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\actors\\f157b16c-39ad-4280-af63-438eabf7e190.jpg"
+    }
+  ]
 }
