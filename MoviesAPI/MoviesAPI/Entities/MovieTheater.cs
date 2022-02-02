@@ -7,7 +7,7 @@ namespace MoviesAPI.Entities
     {
         public int Id { get; set; }
         [Required]
-        [StringLength(maximumLength: 75)]
+        [StringLength(75)]
         public string Name { get; set; }
         public Point Location { get; set; }
     }

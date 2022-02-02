@@ -3,11 +3,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MoviesAPI.DTOs;
 using MoviesAPI.Entities;
+using MoviesAPI.Helpers;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MoviesAPI.Controllers
 {
-    [Route("api/movietheaters")]
     [ApiController]
+    [Route("api/movietheaters")]
     public class MovieTheatersController : ControllerBase
     {
         private readonly ApplicationDbContext context;
@@ -20,13 +25,15 @@ namespace MoviesAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<MovieTheaterDTO>>> Get()
+        public async Task<ActionResult<List<MovieTheaterDTO>>> Get([FromQuery] PaginationDTO paginationDTO)
         {
-            var entities = await context.MovieTheaters.ToListAsync();
+            var queryable = context.MovieTheaters.AsQueryable();
+            await HttpContext.InsertParametersPaginationInHeader(queryable);
+            var entities = await queryable.OrderBy(x => x.Name).Paginate(paginationDTO).ToListAsync();
             return mapper.Map<List<MovieTheaterDTO>>(entities);
         }
 
-        [HttpGet("{id:int")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<MovieTheaterDTO>> Get(int id)
         {
             var movieTheater = await context.MovieTheaters.FirstOrDefaultAsync(x => x.Id == id);
@@ -40,17 +47,16 @@ namespace MoviesAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post(MovieTheaterCreationDTO movieTheaterCreationDTO)
+        public async Task<ActionResult> Post(MovieTheaterCreationDTO movieCreationDTO)
         {
-            var movieTheater = mapper.Map<MovieTheater>(movieTheaterCreationDTO);
+            var movieTheater = mapper.Map<MovieTheater>(movieCreationDTO);
             context.Add(movieTheater);
             await context.SaveChangesAsync();
             return NoContent();
         }
 
-
         [HttpPut("{id:int}")]
-        public async Task<ActionResult> Put(int id, MovieTheaterCreationDTO movieTheaterCreationDTO)
+        public async Task<ActionResult> Put(int id, MovieTheaterCreationDTO movieCreationDTO)
         {
             var movieTheater = await context.MovieTheaters.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -59,7 +65,7 @@ namespace MoviesAPI.Controllers
                 return NotFound();
             }
 
-            movieTheater = mapper.Map(movieTheaterCreationDTO, movieTheater);
+            movieTheater = mapper.Map(movieCreationDTO, movieTheater);
             await context.SaveChangesAsync();
             return NoContent();
         }

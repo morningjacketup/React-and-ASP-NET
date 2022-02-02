@@ -40,6 +40,8 @@ namespace MoviesAPI
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
             sqlOptions => sqlOptions.UseNetTopologySuite()));
 
+            
+
             services.AddScoped<IFileStorageService, InAppStorageService>();
             services.AddHttpContextAccessor();
 
@@ -66,6 +68,8 @@ namespace MoviesAPI
                 });
             });
 
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddSingleton(provider => new MapperConfiguration(config =>
             {
                 var geometryFactory = provider.GetRequiredService<GeometryFactory>();
@@ -74,7 +78,6 @@ namespace MoviesAPI
 
             services.AddSingleton<GeometryFactory>(NtsGeometryServices
                 .Instance.CreateGeometryFactory(srid: 4326));
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

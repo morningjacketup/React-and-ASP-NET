@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gZ5CEyKBGJFQl5lXCA8/zxyezbMTFTIdYk6/0YY2v7xq5oelQ4loucRzCDgsiMddGLioVyV9XDBkuXcwYrcPtA==",
+  "dgSpecHash": "6PZ1keVrWVKhA/3y+qGTEwDKZr5+cdqaHlhPPjfyHpYmCgaCyRgO0A7+AlvwX+ZOM3xj0cpolQJz+l2zzLni+w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Professional\\Desktop\\React and ASP NET\\MoviesAPI\\MoviesAPI\\MoviesAPI.csproj",
   "expectedPackageFiles": [
@@ -42,6 +42,7 @@
     "C:\\Users\\Professional\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Professional\\.nuget\\packages\\nettopologysuite\\2.3.0\\nettopologysuite.2.3.0.nupkg.sha512",
     "C:\\Users\\Professional\\.nuget\\packages\\nettopologysuite.io.sqlserverbytes\\2.0.0\\nettopologysuite.io.sqlserverbytes.2.0.0.nupkg.sha512",
+    "C:\\Users\\Professional\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Professional\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\Professional\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\Professional\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",

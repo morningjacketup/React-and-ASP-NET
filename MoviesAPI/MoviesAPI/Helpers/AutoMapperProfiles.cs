@@ -21,8 +21,62 @@ namespace MoviesAPI.Helpers
                 .ForMember(x => x.Longitude, dto => dto.MapFrom(prop => prop.Location.X));
 
             CreateMap<MovieTheaterCreationDTO, MovieTheater>()
-                .ForMember(x => x.Location, x => x.MapFrom(dto => 
+                .ForMember(x => x.Location, x => x.MapFrom(dto =>
                 geometryFactory.CreatePoint(new Coordinate(dto.Longitude, dto.Latitude))));
+
+            CreateMap<MovieCreationDTO, Movie>()
+                .ForMember(x => x.Poster, options => options.Ignore())
+                .ForMember(x => x.MoviesGenres, options => options.MapFrom(MapMoviesGenres))
+                .ForMember(x => x.MovieTheatersMovies, options => options.MapFrom(MapMovieTheatersMovies))
+                .ForMember(x => x.MoviesActors, options => options.MapFrom(MapMovieActors));
+        }
+
+        private List<MoviesGenres> MapMoviesGenres(MovieCreationDTO movieCreationDTO, Movie movie)
+        {
+            var result = new List<MoviesGenres>();
+
+            if (movieCreationDTO.GenresId == null)
+            {
+                return result;
+            }
+
+            foreach (var id in movieCreationDTO.GenresId)
+            {
+                result.Add(new MoviesGenres() { GenreId = id });
+            }
+
+            return result;
+        }
+
+        private List<MovieTheatersMovies> MapMovieTheatersMovies(MovieCreationDTO movieCreationDTO, Movie movie)
+        {
+            var result = new List<MovieTheatersMovies>();
+
+            if (movieCreationDTO.MovieTheatersIds == null)
+            {
+                return result;
+            }
+
+            foreach (var id in movieCreationDTO.MovieTheatersIds)
+            {
+                result.Add(new MovieTheatersMovies() { MovieId = id });
+            }
+
+            return result;
+        }
+
+        private List<MoviesActors> MapMovieActors(MovieCreationDTO movieCreationDTO, Movie movie)
+        {
+            var result = new List<MoviesActors>();
+
+            if (movieCreationDTO.Actors == null) { return result; }
+
+            foreach (var actor in movieCreationDTO.Actors)
+            {
+                result.Add(new MoviesActors() { ActorId = actor.Id, Character = actor.Character });
+            }
+
+            return result;
         }
     }
 }
